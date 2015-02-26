@@ -18,17 +18,6 @@ var TShirt = (function() {
     }
 
 
-    /* generate list items based on data */
-    function generateItems() {
-        var data = loadJSON();
-        // concat string to avoid DOM minipulation, using data- attribute to store custom data
-        var items = data.map(function(d) {  
-            return '<li> <div class="thumb" id=' + d.id + ' data-prod-id=' + d.id + ' data-url=' + d.product_image_url + ' data-prod-title=' + d.title + ' ></div><div class="product">' + d.id + '</div></li>'
-        });
-        return items;
-    }
-
-
     /* update item caption and image */
     function updateItem(img, caption, data) {
         img.src = '.' + data.url;
@@ -296,7 +285,13 @@ var TShirt = (function() {
                 tshirt = document.getElementById('tshirt'),
                 caption = document.getElementById('caption');
 
-            products.innerHTML = generateItems().join('');   // insert li into ul
+
+            var data = loadJSON();
+            // concat string to avoid DOM minipulation, using data- attribute to store custom data
+            var items = data.map(function(d) {  
+                return '<li> <div class="thumb" id=' + d.id + ' data-prod-id=' + d.id + ' data-url=' + d.product_image_url + ' data-prod-title=' + d.title + ' ></div><div class="product">' + d.id + '</div></li>'
+            });
+            products.innerHTML = data.join('');   // insert li into ul
 
             // init event liseners and delegation
             initEvents();
