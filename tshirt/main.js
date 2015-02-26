@@ -31,7 +31,7 @@ var TShirt = (function() {
 
     /* update item caption and image */
     function updateItem(img, caption, data) {
-        img.src = data.url;
+        img.src = '.' + data.url;
         img.alt = data.prodTitle;
         caption.innerHTML = '<h2>' + data.prodId + '. ' + data.prodTitle + '</h2>';
         hilightItem(data.prodId);
