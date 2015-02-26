@@ -291,7 +291,7 @@ var TShirt = (function() {
             var items = data.map(function(d) {  
                 return '<li> <div class="thumb" id=' + d.id + ' data-prod-id=' + d.id + ' data-url=' + d.product_image_url + ' data-prod-title=' + d.title + ' ></div><div class="product">' + d.id + '</div></li>'
             });
-            products.innerHTML = data.join('');   // insert li into ul
+            products.innerHTML = items.join('');   // insert li into ul
 
             // init event liseners and delegation
             initEvents();
